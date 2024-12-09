@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+MET CS601:  Module 6 Assignment - JOHN GUTIERREZ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+INVENTORY MANAGEMENT APPLICATION
 
-## Available Scripts
+Overview
+Trader John's Inventory App is a dynamic inventory management system designed to showcase a market's product catalog. The app enables users to search, filter, and explore detailed product information. Built with React, the app provides an engaging and responsive user experience.
 
-In the project directory, you can run:
+Features
++ Dynamic Product Catalog: Display items with SKU, name, price, quantity, and category.
++ Search and Filter: Quickly find products by name or filter by category.
++ Detailed Product View: Clickable items link to detailed pages with product descriptions and images.
++ Modern Design: Styled with CSS for a polished look and responsive behavior.
++ Interactive Navigation: Smooth navigation using React Router v6.
 
-### `npm start`
+Technologies Used
++ React: Frontend library for building the UI.
++ React Router v6: For dynamic routing and navigation.
++ JavaScript (ES6+): Core programming language.
++ CSS: Styling and layout design.
++ JSON: Data storage for the inventory.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+File Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+inventory-app/
+├── public/
+│   ├── background.jpg
+│   ├── ciabatta.jpg
+│   ├── coldbrew.jpg
+│   ├── formaggi.png
+│   ├── index.html
+│   ├── manchego.png
+│   ├── ribeye.png
+│   ├── roll.jpg
+│   ├── salmon.png
+│   ├── rose.png
+│   ├── trader-logo.png
+├── src/
+│   ├── components/
+│   │   ├── DisplayItems.js
+│   │   ├── Footer.js
+│   │   ├── Header.js
+│   │   ├── InventoryDetail.js
+│   │   ├── InventoryItem.js
+│   │   ├── InventoryList.js
+│   │   ├── ProductDetail.js
+│   ├── models/
+│   │   ├── Inventory.json
+│   ├── App.css
+│   ├── App.js
 
-### `npm test`
+Core Application (App.js)
++ Purpose: The main entry point of the application. It sets up routing and manages the global state for filtering and searching items.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ Key Features:
+    * State Management:
+        - inventoryList: Contains the inventory data.
+        - searchTerm and selectedCategory: Tracks search inputs and selected category filters.
+    * Filtering Logic: Filters items based on search terms and category.
+    * Routing: Uses React Router to define routes for the home page (/) and item detail pages (/item/:sku).
+    * Dependencies: Interacts with DisplayItems, Header, Footer, and InventoryDetail.
 
-### `npm run build`
+Components Overview:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
++ DisplayItems.js
+    * Purpose: Displays the list of inventory items, with clickable cards leading to detailed views.
+    * Features:
+        - Uses the Link component to create clickable inventory items.
+        - Dynamically renders items using a map function.
+        - Handles empty states by displaying a message if no items match the filters.
+    * Interaction: Renders items filtered by App.js state.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++ InventoryDetail.js
+    * Purpose: Shows detailed information for a single inventory item.
+    * Features: 
+        - Fetches item data by matching the SKU from the URL parameters.
+        - Displays detailed data using the ProductDetail component.
+    * Interaction: Uses the useParams hook from React Router to extract and match the SKU.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
++ ProductDetail.js
+    * Purpose: Displays detailed information about a single product.
+    * Features:
+        - Renders item attributes (e.g., SKU, category, description, image).
+        - Includes a back-to-home navigation button.
+    * Interaction: Receives props from InventoryDetail.js.
 
-### `npm run eject`
++ InventoryItem.js
+    * Purpose: Represents a single inventory item in the list.
+    * Features:
+        - Displays basic item details (e.g., name, price, quantity).
+        - Uses Link for navigation to the detail view.
+    * Interaction: Used by InventoryList or similar components for rendering.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
++ InventoryList.js
+    * Purpose: Renders a list of InventoryItem components.
+    * Features:
+        - Handles conditional rendering to display a loading or empty message.
+    * Interaction: Designed for modular reusability with any list of inventory items.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
++ Header.js
+    * Purpose: Displays the application header with branding.
+    * Features:
+        - Renders a logo (trader-logo.png) and a title ("Trader John's Market").
+    * Interaction: Appears at the top of every page, enhancing navigation consistency.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
++ Footer.js
+    * Purpose: Provides footer navigation and credits.
+    * Features:
+        - Displays links for "About Us," "Contact," and "Privacy Policy."
+        - Renders a copyright message.
+    * Interaction: Appears consistently across all routes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Styling (App.css)
++ Purpose: Defines the visual aesthetics and layout for the application.
++ Key Features:
+    * Global Styling: Sets up fonts, backgrounds, and overall structure.
+    * Component-Specific Styles:
+        - Header and Footer: Sticky positioning for consistent visibility.
+        - Filters: Input fields for search and category selection.
+        - Inventory Items: Grid layout with hover effects.
+    * Product Detail: Centered and styled for a polished look.
++ Responsive Design: Uses media queries to ensure usability on smaller screens.
 
-## Learn More
+Data Model (Inventory.json)
++ Purpose: Provides static inventory data for the application.
++ Key Attributes:
+    * SKU, name, qty, price, category: Core product details.
+    * description: Rich textual information for detailed pages.
+    * image: Path to the product image file.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Routing
++ "/": Displays the filtered inventory list (DisplayItems).
++ "/item/:sku": Navigates to a detailed page for a specific product (InventoryDetail).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Strengths
++ Modular Design: Components are reusable, focused, and well-encapsulated.
++ User Experience:
+    * Filtering and searching for items is seamless.
+    * Details pages provide an enriched experience with product descriptions and images.
++ Scalable Structure: The architecture supports easy expansion, such as adding new pages or functionalities.
++ Responsive Layout: Uses CSS for adaptivity across different screen sizes.

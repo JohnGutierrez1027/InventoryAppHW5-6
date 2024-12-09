@@ -1,0 +1,74 @@
+[
+  {
+    "SKU": "BA005-1020",
+    "name": "Dinner Rolls",
+    "qty": 15,
+    "price": 2.99,
+    "category": "Bakery",
+    "description": "Bite into one of these pull-apart Rolls, and you will notice that they are incredibly moist compared to other store- bought options.",
+    "image": "roll.jpg"
+  },
+  {
+    "SKU": "BA005-1021",
+    "name": "Ciabatta Baguette",
+    "qty": 10,
+    "price": 1.99,
+    "category": "Bakery",
+    "description": "Ciabatta dough contains a higher moisture content than traditional baguette dough—over 70% in this case—giving it a thin, slightly caramelized crust and a light crumb with large holes.",
+    "image": "ciabatta.jpg"
+  },
+  {
+    "SKU": "BE005-1023",
+    "name": "Cold Brew Coffee",
+    "qty": 85,
+    "price": 3.25,
+    "category": "Beverages",
+    "description": "Cold Brew Coffee slow brewing process certainly proves the adage to be true. We start with 100% Arabica Coffee beans that are steeped for 12 hours in cold water—this extracts the Coffee’s flavor without making it bitter.",
+    "image": "coldbrew.jpg"
+  },
+  {
+    "SKU": "BE005-1024",
+    "name": "Sparkling Rosé Tea",
+    "qty": 5,
+    "price": 1.79,
+    "category": "Beverages",
+    "description": "White grape juice from concentrate lends crisp fruitiness that complements the Tea blend’s balanced profile, while hibiscus flowers, orange peel, and rose hips infuse floral, citrusy notes.",
+    "image": "rose.jpg"
+  },
+  {
+    "SKU": "CHE005-1026",
+    "name": "Manchego Cheese",
+    "qty": 6,
+    "price": 13.99,
+    "category": "Cheese",
+    "description": "Produced exclusively in Spain’s La Mancha region, Manchego is a sheep’s milk cheese that’s been produced for hundreds of years. (Cervantes mentioned it in his Don Quixote.)",
+    "image": "manchego.png"
+  },
+  {
+    "SKU": "CHE005-1028",
+    "name": "Quattro Formaggi",
+    "qty": 7,
+    "price": 5.49,
+    "category": "Cheese",
+    "description": "Trader John's Quattro Formaggi calls for a little extra cheesiness.",
+    "image": "formaggi.png"
+  },
+  {
+    "SKU": "MS005-1029",
+    "name": "Beef Rib Eye Steak",
+    "qty": 25,
+    "price": 14.89,
+    "category": "MeatSeafood",
+    "description": "This 100% Angus beef comes to us from Argentina and Brazil, regions renowned for producing some of the highest quality beef in the world.",
+    "image": "ribeye.png"
+  },
+  {
+    "SKU": "MS005-1032",
+    "name": "BBQ Salmon Fillets",
+    "qty": 9,
+    "price": 9.99,
+    "category": "MeatSeafood",
+    "description": "Trader John's BBQ Cut Fresh Atlantic Salmon Fillets with Skin are from salmon that have been carefully raised in some of the world's most pristine salmon farms, at the foot of the Atlantic Ocean in northern Norway. ",
+    "image": "salmon.png"
+  }
+]

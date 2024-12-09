@@ -1,38 +1,320 @@
-.App {
-  text-align: center;
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../public/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-y: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
+.App {
+  background-color: rgba(0, 0, 0, 0.5); 
+  flex: 1; 
+  overflow-y: auto; 
+  min-height: 100vh;  
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content should expand to fill the space */
+.App-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+
+/* Header styles */
+.header {
+  background-color: #ffffff;
+  color: #4a4a4a;
+  font-size: calc(12px + 2vmin);
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 0px;
+  max-width: 100%
+}
+
+.header img {
+  width: 180px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 40px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bolder;
+  text-align: left;
+}
+
+/* Adjust for responsiveness (e.g., on small screens) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+}
+
+/* Filter section styling */
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 2px; 
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: 208px;
+}
+
+.filters input {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgb(246, 123, 123);
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.filters input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.filters select {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgb(246, 123, 123);
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.filters select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.filters label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(4, 230px);
+  gap: 20px;
+  padding: 20px;
+  justify-items: start;
+}
+
+/* Inventory item styling */
+.inventory-item {
+  background-color: rgba(218, 150, 150, 0.9);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  font-size: 0.85rem;
+  width: 180px;
+}
+
+.inventory-item h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.inventory-item p {
+  margin: 5px 0;
+  font-size: 0.85rem;
+}
+
+.inventory-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer styles */
+.footer {
+  background-color: #ffcd38;
+  color: #092932;
+  font-size: 0.9em;
+  flex-shrink: 0; 
+  text-align: center;
+  padding: 8px;
+  position: relative;
+  bottom: 0;
+  max-width: 100%;
+  z-index: 1000; 
+}
+
+.footer nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Aligns links horizontally */
+}
+
+.footer nav ul li {
+  margin: 0 15px; /* Space between links */
+}
+
+.footer nav ul li a {
+  color: rgb(12, 12, 12);
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s; /* Smooth transition for hover */
+}
+
+.footer nav ul li a:hover {
+  color: #f417d6; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge the text on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Link styles */
 .App-link {
   color: #61dafb;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inventory-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.detail-image {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 50px auto;
+  margin-left: 400px;
+}
+
+.product-image {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.product-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.product-detail p {
+  font-size: 1rem;
+  margin: 5px;
+  text-align: justify;
+}
+
+/* Style for the Link wrapper */
+.back-link {
+  display: inline-block; 
+  text-decoration: none; 
+  margin-top: 20px;
+  transition: transform 0.3s ease; 
+}
+
+.back-link:hover {
+  transform: scale(1.1); 
+}
+
+/* Style for the back to Home button link */
+.back-link button {
+  background-color: #4a524a;
+  color: rgb(249, 245, 245);
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: bold; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.back-link button:hover {
+  background-color:#29372a;
+  transform: translateY(-3px); 
+}
+
+.back-link button:active {
+  background-color:#29372a;
+  transform: translateY(0);
+}
+
+
+.item-card-link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.item-card {
+  border: 2px solid #0a0a09;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: rgb(236, 235, 218);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer; /* Indicates clickability */
+}
+
+.item-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.item-info p {
+  margin: 5px 0;
 }
